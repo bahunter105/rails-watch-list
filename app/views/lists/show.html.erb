@@ -1,0 +1,14 @@
+<h1>One of My Lists:</h1>
+
+<h2>
+<%= @list.name %>
+</h2>
+
+
+
+<%=@list.movies.each do |movie|%>
+<ul>
+  <li><%= movie.title %>: <%=movie.overview%></li>
+  <li><%= movie.poster_url %></li>
+</ul>
+<% end %>
