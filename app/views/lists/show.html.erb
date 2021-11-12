@@ -3,7 +3,13 @@
 
 
 
-<div class="banner-list" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @list.photo.key, height: 350, crop: :fill %>);">
+<% if @list.photo.attached? %>
+  <div class="banner-list" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @list.photo.key, height: 300, width: 400, crop: :fill %>);">
+<% else %>
+  <%photo = ["https://media.istockphoto.com/photos/saver-to-start-movie-picture-id492365655?b=1&k=20&m=492365655&s=170667a&w=0&h=BqfY1iIKF1XvvoFcvstQ0eYAueQ6Oq2jPNBWxv_1ELY=", "https://images.unsplash.com/photo-1584474345633-cfd33a207dc8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHBvcGNvcm58ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1712&q=80", "https://media.istockphoto.com/photos/popcorn-horizontal-picture-id182759813?b=1&k=20&m=182759813&s=170667a&w=0&h=g4E0a_09gy8a5oB9SuLKsFU-X0Ut4MFGJ-5VwyIrA8Y=", "https://images.unsplash.com/photo-1533488765986-dfa2a9939acd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80", "https://images.unsplash.com/photo-1542204165-65bf26472b9b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80", "https://images.unsplash.com/photo-1485846234645-a62644f84728?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1718&q=80", "https://images.unsplash.com/photo-1585951237318-9ea5e175b891?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"].sample%>
+  <div class="banner-list" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= photo %>);">
+<% end %>
+
   <div class="container d-flex justify-content-center">
     <h1><%= @list.name %> </h1>
   </div>
