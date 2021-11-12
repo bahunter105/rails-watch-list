@@ -1,14 +1,28 @@
-<h1>One of My Lists:</h1>
 
-<h2>
-<%= @list.name %>
-</h2>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1563381013529-1c922c80ac8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2913&q=80);">
+  <div class="container">
+    <h1><%= @list.name %> </h1>
+  </div>
+</div>
 
+<div>
+  <%= link_to "Bookmark a Movie", new_list_bookmark_path(@list), class:"btn-flat" %>
+</div>
 
-
-<%=@list.movies.each do |movie|%>
-<ul>
-  <li><%= movie.title %>: <%=movie.overview%></li>
-  <li><%= movie.poster_url %></li>
-</ul>
-<% end %>
+<div class="cards">
+  <%@list.movies.each do |movie|%>
+    <%= link_to movie_path(movie) do %>
+      <div class="card-trip">
+        <%= image_tag movie.poster_url%>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%=movie.title%> </h2>
+            <p><%=movie.overview%> </p>
+          </div>
+          <%# <h2 class="card-trip-pricing">£99.99</h2>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

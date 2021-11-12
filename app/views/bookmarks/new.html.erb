@@ -1,5 +1,22 @@
-<%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.association :movie %>
-  <%= f.input :comment %>
-  <%= f.button :submit %>
-<% end %>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <h2>Add New Bookmark: </h2>
+      <%= simple_form_for [@list, @bookmark] do |f| %>
+        <%= f.association :movie %>
+        <%= f.input :comment %>
+        <%= f.button :submit, class: "btn-flat" %>
+      <% end %>
+    </div>
+    <div class="col-3"></div>
+  </div>
+  <div class="row"></div>
+  <div class="row"></div>
+</div>
+
+<div class="cards d-flex justify-items-center">
+</div>
